@@ -17,7 +17,7 @@ def ingest(log):
         label = utils.normalize_interface_label(interface_name)
         mode = utils.normalize_interface_mode(item.get("mode"))
         if item.get("native_vlan") == "None":
-            native_vlan = ""
+            native_vlan = None
         else:
             native_vlan = int(item.get("native_vlan")) if item.get("native_vlan") else None
         tagged_vlans = utils.normalize_vlan_list(item.get("trunking_vlans"))

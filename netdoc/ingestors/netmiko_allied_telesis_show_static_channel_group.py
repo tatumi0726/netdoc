@@ -13,8 +13,7 @@ def ingest(log):
     device_o = log.discoverable.device
 
     for item in log.parsed_output:
-        sa_group = item.get("group")
-        bundle_name = "sa" + sa_group
+        bundle_name = item.get("po_name")
         bundle_label = utils.normalize_interface_label(bundle_name)
         attached_interface_names = item.get("interfaces")
 

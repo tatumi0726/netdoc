@@ -26,12 +26,6 @@ def ingest(log):
         hostname = item.get("hostname")
         hostname = utils.normalize_hostname(hostname)
 
-        if "chassis" in part_description.lower():
-            # Chassis model and Serial Number
-            part_serial_number = item.get("sn")
-            part_number = item.get("pid")
-            break
-
     # Get or create Device
     data = {
         "name": hostname,

@@ -34,7 +34,7 @@ def ingest(log):
         else:
             remote_interface_label = utils.get_remote_lldp_interface_label(
                 port_id=item.get("neighbor_port_id"),
-                port_description=item.get("neighbor_port_id"),
+                port_description="",
                 system_description="",
             )
 

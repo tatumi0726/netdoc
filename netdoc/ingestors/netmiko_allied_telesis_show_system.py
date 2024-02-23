@@ -17,12 +17,11 @@ def ingest(log):
     device_o = log.discoverable.device
     part_number = DEFAULT_MODEL
     part_serial_number = None
-    delimiter = ", "
 
     for item in log.parsed_output:
         part_number = item.get("hardware")[0]
         part_description = item.get("descr")
-        part_serial_number = delimiter.join(item.get("serial"))
+        part_serial_number = item.get("serial")[0]
         description = item.get("version")
         hostname = item.get("hostname")
         hostname = utils.normalize_hostname(hostname)

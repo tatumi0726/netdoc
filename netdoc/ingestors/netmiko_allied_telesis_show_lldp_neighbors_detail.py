@@ -28,14 +28,14 @@ def ingest(log):
         if re.match("^88:9d:98|^889d.98|^001a.eb|^00:1a:eb", item.get("neighbor_port_id")):
                 remote_interface_label = utils.get_remote_lldp_interface_label(
                     port_id="LAN1",
-                    port_description=item.get("neighbor_interface"),
-                    system_description=item.get("system_description"),
+                    port_description="",
+                    system_description="",
                 )
         else:
             remote_interface_label = utils.get_remote_lldp_interface_label(
                 port_id=item.get("neighbor_port_id"),
-                port_description=item.get("neighbor_interface"),
-                system_description=item.get("system_description"),
+                port_description=item.get("neighbor_port_id"),
+                system_description="",
             )
 
         if not utils.is_hostname(remote_name):
